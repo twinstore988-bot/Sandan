@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "IBM Plex Sans Arabic", sans-serif;
+  --font-serif: "Playfair Display", serif;
+  --color-brand: #2563EB;
+  --color-brand-light: #F8FAFC;
+  --color-brand-muted: #F1F5F9;
+}
+
+@layer base {
+  body {
+    @apply bg-brand-light text-[#1A1A1A] antialiased;
+  }
+}
+
+.glass-card {
+  @apply bg-white/80 backdrop-blur-md border border-white/20 shadow-xl shadow-black/5;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  @apply bg-brand/10 rounded-full hover:bg-brand/20 transition-colors;
+}
+
+.print-only {
+  display: none !important;
+}
+
+.generating-pdf .print-only {
+  display: flex !important;
+}
+
+.generating-pdf #analysis-content {
+  box-shadow: none !important;
+  border: none !important;
+  background-color: #ffffff !important;
+  color: #1a1a1a !important;
+}
+
+/* Override Tailwind v4 oklch colors for html2canvas compatibility */
+.generating-pdf #analysis-content * {
+  border-color: #e5e7eb !important; /* Standard gray-200 */
+}
+
+.generating-pdf .text-brand { color: #2563EB !important; }
+.generating-pdf .text-brand\/70 { color: #4b5563 !important; }
+.generating-pdf .text-brand\/60 { color: #6b7280 !important; }
+.generating-pdf .text-brand\/40 { color: #9ca3af !important; }
+.generating-pdf .text-brand\/30 { color: #d1d5db !important; }
+
+.generating-pdf .bg-brand { background-color: #2563EB !important; }
+.generating-pdf .bg-brand\/5 { background-color: #f3f4f6 !important; }
+.generating-pdf .bg-brand\/10 { background-color: #e5e7eb !important; }
+
+.generating-pdf .border-brand\/10 { border-color: #e5e7eb !important; }
+.generating-pdf .border-brand\/5 { border-color: #f3f4f6 !important; }
+
+/* Catch-all for any prose-related oklch colors */
+.generating-pdf .prose-brand {
+  --tw-prose-body: #374151 !important;
+  --tw-prose-headings: #111827 !important;
+  --tw-prose-lead: #4b5563 !important;
+  --tw-prose-links: #2563EB !important;
+  --tw-prose-bold: #111827 !important;
+  --tw-prose-counters: #6b7280 !important;
+  --tw-prose-bullets: #d1d5db !important;
+  --tw-prose-hr: #e5e7eb !important;
+  --tw-prose-quotes: #111827 !important;
+  --tw-prose-quote-borders: #e5e7eb !important;
+  --tw-prose-captions: #6b7280 !important;
+  --tw-prose-code: #111827 !important;
+  --tw-prose-pre-code: #e5e7eb !important;
+  --tw-prose-pre-bg: #1f2937 !important;
+  --tw-prose-th-borders: #d1d5db !important;
+  --tw-prose-td-borders: #e5e7eb !important;
+}
